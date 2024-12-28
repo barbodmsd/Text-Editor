@@ -7,7 +7,7 @@ import { Stack } from "@mui/material";
 // Markdown parser
 const mdParser = new MarkdownIt();
 
-const TextEditor = ({ dir = "rtl", text, setText }) => {
+const TextEditor = ({ dir = "rtl", text='', setText='' }) => {
   const [markdownText, setMarkdownText] = useState(text);
   const editorRef = useRef(null);
 
