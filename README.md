@@ -2,8 +2,8 @@
 
 ### Installation 
 
-+ Text Editor :
+#### Text Editor :
 - npm i react-markdown-editor-lite markdown-it
 
-+ Preview text Editor :   
+#### Preview Text Editor :   
 - npm i markdown-it
