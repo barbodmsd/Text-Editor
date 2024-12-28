@@ -26,7 +26,8 @@ export default function App() {
 
   return (
     <>
-      {/* npm i react-markdown-editor-lite */}
+      {/* npm i react-markdown-editor-lite markdown-it */}
+      
       {/* you always should send text and setText for get the value of text editor
        it's a simple and clean way to get the value from text editor */}
       <TextEditor text={text} setText={setText} />

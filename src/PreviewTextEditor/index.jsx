@@ -16,10 +16,11 @@ export default function PreviewTextEditor({ text = "", dir = "rtl" }) {
           bgcolor: "#f9f9f9",
           direction: dir,
           // you can write custom style here like below example:
-
-          // '& img':{
-          // width:'50%'
-          // },
+          "& img": {
+            width: "50%",
+            height: "500px",
+            objectFit: "cover",
+          },
           // "& p,& h1,& h2,...": {
           //   fontSize: "12px",
           // },
