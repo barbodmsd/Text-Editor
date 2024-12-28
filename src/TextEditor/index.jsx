@@ -7,7 +7,7 @@ import { Stack } from "@mui/material";
 // Markdown parser
 const mdParser = new MarkdownIt();
 
-const TextEditor = ({ dir = "rtl", text='', setText='' }) => {
+const TextEditor = ({ dir = "rtl", text = "", setText }) => {
   const [markdownText, setMarkdownText] = useState(text);
   const editorRef = useRef(null);
 
@@ -40,22 +40,28 @@ const TextEditor = ({ dir = "rtl", text='', setText='' }) => {
     }
   };
 
+  // update markdown state when text be changed
   useEffect(() => {
     setMarkdownText(text);
   }, [text]);
 
   return (
     <Stack
+      alignItems="center"
       sx={{
         width: "100%",
         height: "500px",
+        // example to custom style : 
+        // "& img": {
+        //   width: "50%",
+        // },
       }}
     >
       <MdEditor
         ref={editorRef}
         value={markdownText}
         style={{ height: "100%", width: "100%", direction: dir }}
-        renderHTML={(text) => mdParser.render(markdownText)}
+        renderHTML={(text) => mdParser.render(text)}
         onChange={handleEditorChange}
         config={{
           view: {
