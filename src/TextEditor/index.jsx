@@ -7,14 +7,14 @@ import { Stack } from "@mui/material";
 // Markdown parser
 const mdParser = new MarkdownIt();
 
-const TextEditor = ({ dir = "rtl",text }) => {
-  const [markdownText, setMarkdownText] = useState("");
+const TextEditor = ({ dir = "rtl", text, setText }) => {
+  const [markdownText, setMarkdownText] = useState(text);
   const editorRef = useRef(null);
 
   // Handle editor change
   const handleEditorChange = ({ text }) => {
     setMarkdownText(text);
-    console.log(text)
+    setText(text);
   };
 
   // Handle image upload
@@ -39,6 +39,10 @@ const TextEditor = ({ dir = "rtl",text }) => {
       return "";
     }
   };
+
+  useEffect(() => {
+    setMarkdownText(text);
+  }, [text]);
 
   return (
     <Stack

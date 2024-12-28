@@ -8,15 +8,15 @@ export default function App() {
     (async () => {
       const res = await fetch(import.meta.env.VITE_API + "v1/meals", {
         method: "GET",
-        headers:{
+        headers: {
           "branch-code": "17220700380eae0beb",
-        }
+        },
       });
-      const data=await res.json()
-      setText(data?.data?.d[0]?.desc)
+      const data = await res.json();
+      setText(data?.data?.d[0]?.desc);
     })();
   }, []);
-  console.log(text)
+  console.log(text);
   return (
     <>
       {/* persian editor */}
@@ -26,7 +26,8 @@ export default function App() {
       {/* english editor */}
       {/* <EnglishEditor/> */}
       {/* <EnglishPreview /> */}
-      <TextEditor text={text} dir="ltr"/>
+      
+      <TextEditor text={text} setText={setText} />
       {/* <EnglishPreview/> */}
     </>
   );
