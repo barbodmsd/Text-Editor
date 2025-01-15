@@ -5,7 +5,7 @@ import React, { useState } from "react";
 // Markdown parser
 const mdParser = new MarkdownIt();
 
-export default function PreviewTextEditor({ text = "", dir = "rtl" }) {
+export default function PreviewTextEditor({ text = "", dir = "rtl", styles }) {
   return (
     <>
       <Stack
@@ -24,6 +24,7 @@ export default function PreviewTextEditor({ text = "", dir = "rtl" }) {
           // "& p,& h1,& h2,...": {
           //   fontSize: "12px",
           // },
+          ...styles,
         }}
         dangerouslySetInnerHTML={{ __html: mdParser.render(text) }}
       />

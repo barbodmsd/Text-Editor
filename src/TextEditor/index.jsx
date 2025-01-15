@@ -7,7 +7,7 @@ import { Stack } from "@mui/material";
 // Markdown parser
 const mdParser = new MarkdownIt();
 
-const TextEditor = ({ dir = "rtl", text = "", setText }) => {
+const TextEditor = ({ dir = "rtl", text = "", setText, styles }) => {
   const [markdownText, setMarkdownText] = useState(text);
   const editorRef = useRef(null);
 
@@ -51,10 +51,11 @@ const TextEditor = ({ dir = "rtl", text = "", setText }) => {
       sx={{
         width: "100%",
         height: "500px",
-        // example to custom style : 
+        // example to custom style :
         // "& img": {
         //   width: "50%",
         // },
+        ...styles,
       }}
     >
       <MdEditor
